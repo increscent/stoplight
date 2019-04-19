@@ -16,7 +16,7 @@ while True:
 
     for ssid in ssids:
         ssid_f = open("./.ssid_tmp", "wb")
-        ssid_f.write(base64.decodebytes(ssid))
+        ssid_f.write(base64.b64decode(ssid))
         ssid_f.close()
 
         ssid_f = open("./.ssid_tmp", "rb")
