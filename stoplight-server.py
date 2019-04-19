@@ -18,7 +18,7 @@ hostapd_default_conf = open("./hostapd_default.conf", "r").read()
 while True:
     hostapd_conf = open("./hostapd.conf", "w")
     hostapd_conf.write(hostapd_default_conf)
-    hostapd_conf.write("\n{}\n".format(ssid)
+    hostapd_conf.write("\n{}\n".format(ssid))
     hostapd_conf.close()
 
     hostapd = subprocess.Popen(["hostapd", "./hostapd.conf"], stdout=dev_null, stderr=dev_null)
