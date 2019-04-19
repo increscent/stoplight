@@ -5,6 +5,7 @@ import time
 import base64
 import io
 
+# compile the serializer
 subprocess.call(["./compile.sh"])
 
 ssid = base64.encodebytes(subprocess.check_output(["./serialize", "35.5", "35.5", "2", "2", "1", "5", "3", "1", "0", "6", "16"]))
