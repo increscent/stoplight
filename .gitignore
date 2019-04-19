@@ -1,3 +1,5 @@
 serialize
 .ssid_tmp
 hostapd.conf
+*.swp
+__pycache__
