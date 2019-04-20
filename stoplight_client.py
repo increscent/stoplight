@@ -31,3 +31,5 @@ while True:
         state_f.close();
 
         print(args.decode("ascii"))
+
+    time.sleep(0.5)
