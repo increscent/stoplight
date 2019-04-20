@@ -11,7 +11,7 @@ import re
 subprocess.call(["./compile.sh"])
 
 dev_null = open("/dev/null", "w")
-server = subprocess.Popen(["http-server", "ui"], stdout=dev_null, stderr=dev_null)
+server = subprocess.Popen(["http-server", "ui", "-c-1"], stdout=dev_null, stderr=dev_null)
 
 while True:
     ssid_list = subprocess.check_output(commands.scan).decode("ascii")
@@ -31,5 +31,3 @@ while True:
         state_f.close();
 
         print(args.decode("ascii"))
-
-    time.sleep(0.5)

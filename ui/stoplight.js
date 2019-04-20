@@ -9,6 +9,8 @@ function httpGetAsync(url, callback)
             callback(xmlHttp.responseText);
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
+    xmlHttp.setRequestHeader('cache-control', 'no-cache, must-revalidate, post-check=0, pre-check=0');
+    xmlHttp.setRequestHeader('cache-control', 'max-age=0');
     xmlHttp.send(null);
 }
 
@@ -17,6 +19,7 @@ function drawState(state)
     var c = document.getElementById('intersection').getContext('2d');
     var width = c.canvas.clientWidth;
     var height = c.canvas.clientHeight;
+    c.clearRect(0, 0, width, height);
     var radius = Math.min(width/2, height/2) - 100;
 
     state = state.split(' ');
