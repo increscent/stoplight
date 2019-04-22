@@ -13,6 +13,8 @@ subprocess.call(["./compile.sh"])
 dev_null = open("/dev/null", "w")
 server = subprocess.Popen(["http-server", "ui", "-c-1"], stdout=dev_null, stderr=dev_null)
 
+prev_ssid = None
+consecutive = 0
 while True:
     ssid_list = subprocess.check_output(commands.scan).decode("ascii")
     ssids = list(filter(lambda x: len(x) == 32, re.findall(r'SSID: (.*)\n', ssid_list)))
@@ -30,4 +32,11 @@ while True:
         state_f.write(args.decode("ascii"));
         state_f.close();
 
-        print(args.decode("ascii"))
+        #print(args.decode("ascii"))
+
+        if ssid == prev_ssid:
+            consecutive += 1
+        else:
+            print("Beacons per second: " + str(consecutive))
+            consecutive = 1
+            prev_ssid = ssid

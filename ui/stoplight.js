@@ -50,11 +50,11 @@ function drawLight(context, radius, color, left, direction, time)
 
     var angle = ((direction/32 * 2*Math.PI) + Math.PI/2) % (2*Math.PI);
 
-    var x = width/2 + Math.cos(angle)*radius;
-    var y = height/2 - Math.sin(angle)*radius;
+    var x = width/2 + Math.cos(angle)*radius - 20;
+    var y = height/2 - Math.sin(angle)*radius - 60;
 
     if (left)
-        x -= 60;
+        x -= 50;
 
     c.fillStyle = "#000000";
     c.fillRect(x, y, 40, 120);
@@ -82,5 +82,5 @@ function drawLight(context, radius, color, left, direction, time)
 
     // time
     c.fillStyle = "#000000";
-    c.fillText(time, x+50, y+115);
+    c.fillText(time, x+10, y+145);
 }
