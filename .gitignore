@@ -3,3 +3,4 @@ serialize
 hostapd.conf
 *.swp
 __pycache__
+ui/state.txt
