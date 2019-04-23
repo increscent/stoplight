@@ -9,6 +9,8 @@ import stoplight_config
 # compile the serializer
 subprocess.call(["./compile.sh"])
 
+config = stoplight_config.config1
+
 start = time.time()
 
 def get_state(config, start):
@@ -43,7 +45,7 @@ dev_null = open("/dev/null", "w")
 hostapd_default_conf = open("./hostapd_default.conf", "r").read()
 
 while True:
-    state = get_state(stoplight_config.config1, start)
+    state = get_state(config, start)
     print(state);
     ssid = base64.b64encode(subprocess.check_output(["./serialize"] + state)).decode("ascii")
     print(ssid)
