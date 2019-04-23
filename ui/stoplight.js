@@ -60,27 +60,49 @@ function drawLight(context, radius, color, left, direction, time)
     c.fillRect(x, y, 40, 120);
 
     // red
-    c.fillStyle = color == 3 ? "#fe0010" : "#590006";
+    c.fillStyle = color == 3 && !left ? "#fe0010" : "#590006";
 
     c.beginPath();
     c.arc(x+20, y+25, 15, 0, 2*Math.PI);
     c.fill();
 
+    if (color == 3 && left)
+    {
+        c.fillStyle = "#fe0010";
+        c.font = "45px Arial";
+        c.fillText('￩', x+10, y+43);
+    }
+
     // yellow
-    c.fillStyle = color == 2 ? "#fbd21a" : "#594809";
+    c.fillStyle = color == 2 && !left ? "#fbd21a" : "#594809";
 
     c.beginPath();
     c.arc(x+20, y+60, 15, 0, 2*Math.PI);
     c.fill();
 
+    if (color == 2 && left)
+    {
+        c.fillStyle = "#fbd21a";
+        c.font = "45px Arial";
+        c.fillText('￩', x+10, y+78);
+    }
+
     // green
-    c.fillStyle = color == 1 ? "#79fe00" : "#2b5900";
+    c.fillStyle = color == 1 && !left ? "#79fe00" : "#2b5900";
 
     c.beginPath();
     c.arc(x+20, y+95, 15, 0, 2*Math.PI);
     c.fill();
 
+    if (color == 1 && left)
+    {
+        c.fillStyle = "#79fe00";
+        c.font = "45px Arial";
+        c.fillText('￩', x+10, y+113);
+    }
+
     // time
     c.fillStyle = "#000000";
+    c.font = "25px Arial";
     c.fillText(time, x+10, y+145);
 }
