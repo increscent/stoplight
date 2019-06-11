@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import signal
+import sys
 import subprocess
 import time
 import base64
@@ -40,3 +42,8 @@ while True:
             print("Beacons per second: " + str(consecutive))
             consecutive = 1
             prev_ssid = ssid
+
+def signal_handler(sig, frame):
+    server.terminate()
+    sys.exit(0)
+signal.signal(signal.SIGINT, signal_handler)
